@@ -20,9 +20,72 @@ class InventoryRegisterForm(forms.ModelForm):
             'model',
         )
         widgets= {
-            'location':forms.TextInput(attrs={'placeholder':'Location', 'class':'form-control',}),
-            'direction': forms.TextInput(attrs={'placeholder':'Direction', 'class':'form-control',})
-
+            'location':forms.TextInput(
+                attrs={
+                    'placeholder':'...', 
+                    'class':'form-control',
+                }
+            ),
+            'direction': forms.TextInput(
+                attrs={
+                    'placeholder':'...', 
+                    'class':'form-control',
+                }
+            ),
+            'hostname': forms.TextInput(
+                attrs={
+                    'placeholder':'...', 
+                    'class':'form-control',
+                }
+            ),
+            'nuuma':forms.TextInput(
+                attrs={
+                    'placeholder':'...', 
+                    'class':'form-control',
+                }
+            ),
+            'serial_number':forms.TextInput(
+                attrs={
+                    'placeholder':'...', 
+                    'class':'form-control',
+                }
+            ),
+            'product_number': forms.TextInput(
+                attrs={
+                    'placeholder':'...', 
+                    'class':'form-control',
+                }
+            ),
+            'mac_address': forms.TextInput(
+                attrs={
+                    'placeholder':'...', 
+                    'class':'form-control',
+                }
+            ),
+            'mac_wifi': forms.TextInput(
+                attrs={
+                    'placeholder':'...', 
+                    'class':'form-control',
+                }
+            ),
+            'manufacturer': forms.TextInput(
+                attrs={
+                    'placeholder':'...', 
+                    'class':'form-control',
+                }
+            ),
+            'model': forms.TextInput(
+                attrs={
+                    'placeholder':'...', 
+                    'class':'form-control',
+                }
+            ),
+            'name': forms.TextInput(
+                attrs={
+                    'placeholder':'...', 
+                    'class':'form-control',
+                }
+            ),
 
         }
         

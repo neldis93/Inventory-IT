@@ -3,13 +3,13 @@ from django.db import models
 
 class Inventory(models.Model):
 
-    PORTATILES='0'
-    SOBREMESA='1'
+    LAPTOPS='0'
+    DESKTOP='1'
     SURFACE='2'
 
     MODEL_TEAM=[
-        (PORTATILES,'Portatil'),
-        (SOBREMESA,'Sobremesa'),
+        (LAPTOPS,'Laptops'),
+        (DESKTOP,'Desktop'),
         (SURFACE,'Surface'),
     
     ]
@@ -25,7 +25,7 @@ class Inventory(models.Model):
     mac_wifi = models.CharField('MAC WIFI', max_length=50, blank=True)
     manufacturer = models.CharField('Manufacturer', max_length=50)
     name = models.CharField('Name', max_length=50)
-    model = models.CharField('Model', max_length=5, choices=MODEL_TEAM)
+    model = models.CharField('Model', max_length=1, choices=MODEL_TEAM)
 
 
     class Meta:
