@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Register User
+{% endblock title %}
+
+
+
+{% block content %}
+<div class="container col-lg-10 card" style="width: 60rem;">
+        <h2 class="py-5 text-center" style=" color:turquoise;">Register</h2>    
+
+    <form method="post">{% csrf_token %}
+        <div class="form-row">
+            
+            <div class="form-group col-md-6">
+                {{ form.first_name }}
+
+            </div>
+            <div class="form-group col-md-6">
+                {{ form.last_name }}
+
+            </div>
+        </div>
+            <div class="form-group">
+                {{ form.username }}
+
+            </div>
+            <div class="form-group">
+                {{ form.phone }}
+
+            </div>
+            <div class="form-group">
+                
+                {{ form.password1 }}
+
+            </div>
+            {% for error in form.password1.errors %}
+                <p class="form-control" style="color: red;">
+                    {{ error|escape }}
+                </p>
+            {% endfor %}
+            <div class="form-group">
+                {{ form.password2 }}
+
+            </div>
+            {% for error in form.password1.errors %}
+                <p class="form-cotrol" style="color: red;">
+                    {{ error|escape }}
+                </p>
+            {% endfor %}
+           
+       <div>
+        <button class="btn btn-primary btn-block btn-style" type="submit">Register</button>
+       </div>
+        
+    </form>
+    
+</div>
+    
+{% endblock content %}
+
+
+    

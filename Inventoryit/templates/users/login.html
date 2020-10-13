@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Login User
+{% endblock title %}
+
+
+
+{% block content %}
+<div class="sidenav">
+    <div class="login-main-text">
+       <h2>Inventory<br>IT</h2>
+       <p>Login or register from here to access.</p>
+    </div>
+ </div>
+ <div class="main">
+    <div class="col-md-6 col-sm-12">
+       <div class="login-form">
+          <form method="POST">{% csrf_token %}
+             <div class="form-group">
+                <label>User Name</label>
+                {{form.username}}
+             </div>
+             <div class="form-group">
+                <label>Password</label>
+                {{form.password}}
+             </div>
+             <button type="submit" class="btn btn-color">Login</button>
+             <button type="button" class="btn btn-color2 "><a href="{% url 'users_app:register_user' %}">Register</button></a>
+          </form>
+       </div>
+    </div>
+ </div>
+
+
+       
+    
+{% endblock content %}

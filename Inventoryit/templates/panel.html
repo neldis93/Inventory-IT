@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Panel
+{% endblock title %}
+
+{% block content %}
+
+
+
+<nav class="p-3 sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand mb-0 h1" href=" {% url 'inventory_app:panel_admin' %} " style="color: turquoise;">INVENTORY</a>
+    
+    <!-- Navbar-->
+    <ul class="navbar-nav form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'users_app:logout_user' %}">Logout</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">
+                        <h4 style="color: teal">Session of: {{ user }}</h4>
+                    </div>
+                   <!--spain-->
+                    <div class="sb-sidenav-menu-heading">Spain</div>
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Table
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{% url 'inventory_app:panel_spain' %}">Inventory Spain</a>
+                            <a class="nav-link" href="layout-sidenav-light.html">Change Control</a>
+                        </nav>
+                    </div>
+                    
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        Example
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+
+                    <!--LATAM-->
+                    <div class="sb-sidenav-menu-heading">LATAN</div>
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Table
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="#">Inventory Colombia</a>
+                            <a class="nav-link" href="#">Inventory Chile</a>
+                            <a class="nav-link" href="#">Inventory Mexico</a>
+                            <a class="nav-link" href="#">Inventory Argentina</a>
+                        </nav>
+                    </div>
+                </div>
+        </nav>
+    </div>
+
+        
+        {% block panel-content %}
+            {% include 'inventory/home.html' %}
+        {% endblock panel-content %}
+    
+
+    
+        </main>
+
+    </div>
+</div>
+
+
+<footer class="py-4 bg-light">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; Inventory Neldis Barrios</div>
+        </div>
+    </div>
+</footer>
+
+
+{% endblock content %}
+
+    
