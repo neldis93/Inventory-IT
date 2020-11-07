@@ -56,7 +56,12 @@ LOCAL_APPS=(
     'applications.inventory',
 )
 
-INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
+THIRD_PARTY_APPS=(
+    'rest_framework',
+    'bootstrap4',
+)
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
    
 
 MIDDLEWARE = [

@@ -1,0 +1,82 @@
+{% extends 'inventory/base_panel.html' %}
+{% load static %}
+
+
+{% block panel-content %}
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-5">Tables</h1>
+            <div class="text-right mb-2">
+            <a href="{% url 'inventory_app:register_inventory' %}" class="btn btn-color2 btn-lg">Register</a>
+            </div>
+            <div class="mb-5">
+                <form method="GET">
+                    <div class="input-group">
+                        <input class="form-control col-md-9" id="keyword" name="keyword" type="text" placeholder="Search" />
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table-responsive ">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="1">
+                    <thead>
+                        <tr>
+                            <th>Location</th>   
+                            <th>Direction</th>
+                            <th>Hostname</th>
+                            <th>Nuuma</th>
+                            <th>Serial Number</th>
+                            <th>Product Number</th>
+                            <th>MAC Address</th>
+                            <th>Mac Wifi</th>
+                            <th>Manufacturer</th>
+                            <th>Name</th>   
+                            <th>Model</th>
+                            <th>Observations</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                
+                    <tbody>
+                        
+                        {% for li in list_inventory %}
+                                
+                        <tr>
+                            <td>{{ li.location }}</td>
+                            <td>{{ li.direction }}</td>
+                            <td>{{ li.hostname }}</td>
+                            <td>{{ li.nuuma }}</td>
+                            <td>{{ li.serial_number }}</td>
+                            <td>{{ li.product_number }}</td>
+                            <td>{{ li.mac_address }}</td>
+                            <td>{{ li.mac_wifi }}</td>
+                            <td>{{ li.manufacturer }}</td>
+                            <td>{{ li.name }}</td>
+                            <td>{{ li.get_model_display }}</td>
+                            <td>{{ li.observations }}</td>
+                            <td>
+                                <a class="btn btn-color" href="{% url 'inventory_app:update_inventory' li.id  %}">Edit</a>
+                                <a class="btn btn-dark" href="{% url 'inventory_app:delete_inventory' li.id  %}">Delete</a>
+                            </td>
+                        
+                                
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+            
+    </main>
+
+</div>
+    
+{% endblock panel-content %}
+    

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Update Change Control
+{% endblock title %}
+
+
+
+{% block content %}
+<div class="py-3 px-5">
+    <a href="{% url 'inventory_app:control_list' %}" class="btn btn-info">Back</a>
+</div>
+<div class="container col-lg-10 card " style="width: 60rem; height: 75rem;">
+    <h2 class="py-5 text-center" style=" color:turquoise;">Update Change Control</h2>
+        <form method="POST">{% csrf_token %}
+            <label>Tracinng Number</label>
+            <div class="form-group">
+                {{ form.as_p  }}
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-color btn-block btn-style" type="submit" >Update</button>
+            </div>
+        </form>
+
+
+</div>
+
+
+{% endblock content %}
+
+
