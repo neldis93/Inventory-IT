@@ -5,4 +5,13 @@
 
 Project work for Inventory IT
 
+# Description
 
+This is a test project to automate an inventory of computer equipment, where it contains specifications of the equipments, change control, monitoring of the ticketing tool that I carry in my current job.
+
+# Used Technologies
+- Django
+- Django rest framework
+- PostgreSQL
+- Botstrap 4
+- Vuejs 
