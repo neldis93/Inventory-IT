@@ -15,4 +15,3 @@ This is a test project to automate an inventory of computer equipment, where it 
 - PostgreSQL
 - Bootstrap 4
 - Vuejs 
-
