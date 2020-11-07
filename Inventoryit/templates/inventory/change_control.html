@@ -1,0 +1,64 @@
+{% extends 'inventory/base_panel.html' %}
+{% load static %}
+
+{% block panel-content %}
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-5">Tables</h1>
+            <div class="text-right mb-2 px-2">
+                <a href="{% url 'inventory_app:control_register' %}" class="btn btn-color2" style="border: 1px solid #ccc">Register</a>
+            </div>
+                <div id="app" class="mb-5">
+                    <form method="GET">
+                        <div class="input-group">
+                            <input class="form-control col-md-9" v-model="kword" id="keyword" name="keyword" type="text" placeholder="Search" />
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>      
+                    <div class="table-responsive">
+                        <table class="table table-bordered table table-striped" id="dataTable" width="70%" cellspacing="1">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Tracing Number</th>
+                                    <th>Date</th>
+                                    <th>Hostname/NºSeria</th>
+                                    <th>IM/RF</th>
+                                    <th>Comments</th>
+                                    <th>Actions</th>  
+                            </thead>
+                            <tbody>
+                                
+                                {% for li in list_change_control %}
+                                        
+                                <tr>
+                                    <td>{{ li.tracing_number }}  </td>
+                                    <td>{{ li.date }}</td>
+                                    <td>{{ li.field_host }}</td>
+                                    <td>{{ li.ticket }}</td>
+                                    <td>{{ li.comments }}</td>
+                                    <td>
+                                        <a class="btn btn-color" href="{% url 'inventory_app:control_update' li.id  %}">Edit</a>
+                                        <div class="py-1">
+                                        <a class="btn btn-dark" href="{% url 'inventory_app:control_delete' li.id  %}">Delete</a>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+
+        </div>
+            
+    </main>
+
+</div>
+
+{% endblock panel-content %}
+

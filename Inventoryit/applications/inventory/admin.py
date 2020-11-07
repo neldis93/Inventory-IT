@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Inventory
+from .models import Inventory, ChangeControl
 
 class InventoryAdmin(admin.ModelAdmin):
     list_display=(
@@ -15,10 +15,13 @@ class InventoryAdmin(admin.ModelAdmin):
         'mac_wifi',
         'manufacturer',
         'name',
-        'model',    
+        'model', 
+        'observations',
+        'warranty',   
     )
 
     search_fields=('nuuma','hostname',)
     list_filter=('nuuma','hostname','model',)
 
 admin.site.register(Inventory,InventoryAdmin)
+admin.site.register(ChangeControl)

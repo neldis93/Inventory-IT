@@ -18,6 +18,13 @@
     <div class="col-md-6 col-sm-12">
        <div class="login-form">
           <form method="POST">{% csrf_token %}
+            {% if  form.errors %}
+   
+               <p class="alert alert-danger">
+                  {{ form.errors }}
+               </p>
+               
+            {% endif %}
              <div class="form-group">
                 <label>User Name</label>
                 {{form.username}}
@@ -27,7 +34,7 @@
                 {{form.password}}
              </div>
              <button type="submit" class="btn btn-color">Login</button>
-             <button type="button" class="btn btn-color2 "><a href="{% url 'users_app:register_user' %}">Register</button></a>
+             <a href="{% url 'users_app:register_user' %}" class="btn btn-color2 ">Register</a>
           </form>
        </div>
     </div>

@@ -18,6 +18,8 @@ class InventoryRegisterForm(forms.ModelForm):
             'manufacturer',
             'name',
             'model',
+            'observations',
+            'warranty',
         )
         widgets= {
             'location':forms.TextInput(
@@ -74,18 +76,24 @@ class InventoryRegisterForm(forms.ModelForm):
                     'class':'form-control',
                 }
             ),
-            'model': forms.TextInput(
-                attrs={
-                    'placeholder':'...', 
-                    'class':'form-control',
-                }
-            ),
+
             'name': forms.TextInput(
                 attrs={
                     'placeholder':'...', 
                     'class':'form-control',
                 }
             ),
-
+             'observations': forms.TextInput(
+                attrs={
+                    'placeholder':'...', 
+                    'class':'form-control',
+                }
+            ),
+            'warranty': forms.TextInput(
+                attrs={
+                    'placeholder':'...', 
+                    'class':'form-control',
+                }
+            ),
         }
         

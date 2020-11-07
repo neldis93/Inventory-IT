@@ -6,22 +6,31 @@
 
 <div id="layoutSidenav_content">
     <main>
-        <div class="container-fluid">
+        <div class="container-fluid mt-3">
             <h1 class="mt-5">Tables</h1>
-            <div class="card body mb-5">
+            <div class="text-right mb-2 px-2">
+            <a href="{% url 'inventory_app:register_inventory' %}" class="btn btn-color2
+            " style="border: 1px solid #ccc">Register</a>
+            </div>
+            <div id="app" class="mb-5">
                 <form method="GET">
                     <div class="input-group">
-                        <input class="form-control" id="keyword" name="keyword" type="text" placeholder="Search" />
+                        <input class="form-control col-md-9" v-model="kword" id="keyword" name="keyword" type="text" placeholder="Search" />
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                            <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                         </div>
                     </div>
+                     <ul class="list-group list-group-flush">
+                         <a href="#" v-for="list in list_inv":key="list.id">
+                            <li class="list-group-item list-group-item-light"> {$ list.nuuma $}</li>
+                         </a>
+                     </ul>
                 </form>
             </div>
 
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="1">
-                    <thead>
+            <div class="table-responsive" style="border-radius: 4px;">
+                <table class="table table-bordered table table-striped" id="dataTable" cellspacing="1" style= "font-size: 13px;">
+                    <thead class="thead-dark">
                         <tr>
                             <th>Location</th>
                             <th>Direction</th>
@@ -34,6 +43,9 @@
                             <th>Manufacturer</th>
                             <th>Name</th>   
                             <th>Model</th>
+                            <th>Observations</th>
+                            <th>Warranty</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                 
@@ -52,7 +64,18 @@
                             <td>{{ li.mac_wifi }}</td>
                             <td>{{ li.manufacturer }}</td>
                             <td>{{ li.name }}</td>
-                            <td>{{ li.model }}</td>
+                            <td>{{ li.get_model_display }}</td>
+                            <td>{{ li.observations }}</td>
+                            <td>{{ li.warranty }}</td>
+                            <td>
+                                <a class="btn btn-color" href="{% url 'inventory_app:update_inventory' li.id  %}">Edit</a>
+                                <div class="py-1">
+                                <a class="btn btn-dark" href="{% url 'inventory_app:delete_inventory' li.id  %}">Delete</a>
+                                </div>
+                            </td>
+                            
+                                
+                            
                         </tr>
                         {% endfor %}
                     </tbody>

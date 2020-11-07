@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Delete Inventory
+{% endblock title %}
+
+
+{% block content %} 
+<div class="container col-lg-10 card">
+    <h1 class="py-5 text-center">Delete: {{ object.hostname }}</h1>
+    <form method="POST">{% csrf_token %}
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">¿Are you sure you want to delete?</h4>
+            <button type="submit" class="btn btn-danger my-2">Confirm</button>
+            <a href="{% url 'inventory_app:panel_list' %}" class="btn btn-info mx-2">Back</a>
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock content %}
+    

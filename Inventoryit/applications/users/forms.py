@@ -83,6 +83,7 @@ class RegisterForm(forms.ModelForm):
             # el add_error vincula el error al campa se le indica, en este caso password2
             self.add_error('password2', 'Passwords are not the same') # tambien se puede utilizar el raise
 
+            
     """
         #if len(self.cleaned_data['password1']) < '5' and len(self.cleaned_data['password1'] > '12':
             #raise forms.ValidationError('La contraseña debe ser mayor a 5 digitos y menor a 12')

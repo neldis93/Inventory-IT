@@ -7,15 +7,17 @@
 
 
 {% block content %}
+<div class="py-3 px-5">
+    <a href="{% url 'inventory_app:panel_list' %}" class="btn btn-info">Back</a>
+</div>
 
-<div class="container col-lg-10 card " style="width: 60rem; height: 70rem;">
+<div class="container col-lg-10 card " style="width: 60rem; height: 75rem;">
     <h2 class="py-5 text-center" style=" color:turquoise;">Register Inventory</h2>
     <form method="POST"> {% csrf_token %}
         
         <label>Location:</label>
         <div class="form-group">
-            
-                {{ form.location }}
+            {{ form.location }}
         </div>
         
         <label>Direction:</label>
@@ -69,6 +71,17 @@
             {{ form.name }}
 
         </div>
+        <label>Observations:</label>
+        <div class="form-group">
+            {{ form.observations }}
+
+        </div>
+        <label>Warranty:</label>
+        <div class="form-group">
+            {{ form.warranty }}
+
+        </div>
+
    <div class="form-group">
     <button class="btn btn-primary btn-block btn-style" type="submit" >Register</button>
    </div>

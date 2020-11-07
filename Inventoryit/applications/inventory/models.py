@@ -1,5 +1,6 @@
 from django.db import models
 
+from .managers import InventoryManagers
 
 class Inventory(models.Model):
 
@@ -26,15 +27,35 @@ class Inventory(models.Model):
     manufacturer = models.CharField('Manufacturer', max_length=50)
     name = models.CharField('Name', max_length=50)
     model = models.CharField('Model', max_length=1, choices=MODEL_TEAM)
+    observations= models.CharField('Observations', max_length=70)
+    warranty= models.CharField('Warranty', max_length=50, blank=True)
 
+    objects= InventoryManagers()
 
     class Meta:
         verbose_name='Inventory'
-        #verbose_name_plural='Inventories'
+        verbose_name_plural='Inventories'
         ordering=['id']
 
     def __str__(self):
         return self.nuuma + ' - ' + self.hostname
 
+"""Change control"""
+
+
+class ChangeControl(models.Model):  
+    
+    tracing_number= models.IntegerField()
+    date= models.DateField()
+    field_host= models.CharField('Hostname/NºSerial',max_length=50,blank=True)
+    ticket = models.CharField('IM or RF', max_length=50,blank=True)
+    comments = models.CharField('Comments', max_length=100, blank=True)
+
+    class Meta:
+        verbose_name='Change control'
+        ordering=['tracing_number']
+
+    def __str__(self):
+        return str(self.id) + '-' + self.ticket + ' - ' + self.field_host
 
 
