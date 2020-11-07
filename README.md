@@ -13,5 +13,6 @@ This is a test project to automate an inventory of computer equipment, where it 
 - Django
 - Django rest framework
 - PostgreSQL
-- Botstrap 4
+- Bootstrap 4
 - Vuejs 
+
