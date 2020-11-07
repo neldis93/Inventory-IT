@@ -15,3 +15,23 @@ This is a test project to automate an inventory of computer equipment, where it 
 - PostgreSQL
 - Bootstrap 4
 - Vuejs 
+
+# Some images of the project:
+
+![image](Inventoryit/media/Screenshot/Page.png)
+
+#
+
+![image](Inventoryit/media/Screenshot/Page-2.png)
+
+#
+
+![image](Inventoryit/media/Screenshot/Page-3.png)
+
+#
+
+![image](Inventoryit/media/Screenshot/Page-4.png)
+
+#
+
+![image](Inventoryit/media/Screenshot/Page-5.png)
