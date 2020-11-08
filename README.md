@@ -16,7 +16,7 @@ This is a test project to automate an inventory of computer equipment, where it 
 - Bootstrap 4
 - Vuejs 
 
-# Some images of the project:
+# Some images of the project :camera: 
 
 ![image](Inventoryit/media/Screenshot/Page.png)
 
