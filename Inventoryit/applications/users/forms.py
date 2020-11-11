@@ -132,7 +132,6 @@ class LoginForm(forms.Form):
 
 # validar si un usuario existe o no en la base de datos y si sus datos estan correctos  
     def clean(self):
-        # cleaned_data quiere decir que retorne todos los datos
         cleaned_data=super(LoginForm, self).clean()
         username=self.cleaned_data.get('username')
         password=self.cleaned_data.get('password')
