@@ -73,11 +73,7 @@ class RegisterForm(forms.ModelForm):
 
         }
       
-    # validar la contraseña para verificar que sean las mismas cuando ingrese el password1 y password2
     def clean_password2(self):
-
-        #password1= self.cleaned_data['password1']
-        #password2= self.cleaned_data['password2']
 
         if self.cleaned_data['password1'] != self.cleaned_data['password2']:
             # el add_error vincula el error al campa se le indica, en este caso password2
