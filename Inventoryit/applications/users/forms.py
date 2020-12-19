@@ -76,33 +76,18 @@ class RegisterForm(forms.ModelForm):
     def clean_password2(self):
 
         if self.cleaned_data['password1'] != self.cleaned_data['password2']:
-            # el add_error vincula el error al campa se le indica, en este caso password2
-            self.add_error('password2', 'Passwords are not the same') # tambien se puede utilizar el raise
+            self.add_error('password2', 'Passwords are not the same') 
 
             
-    """
-        #if len(self.cleaned_data['password1']) < '5' and len(self.cleaned_data['password1'] > '12':
-            #raise forms.ValidationError('La contraseña debe ser mayor a 5 digitos y menor a 12')
-        if not re.search('[a-z]', password1) and re.search('[A-Z]',password1):
-            raise forms.ValidationError('Should contain mayoscules and minisculates')
-        if not re.search('[_@#$%\/.,*+-]',password1):
-            raise forms.ValidationError('Should contain special caracters')
-                
-        #if self.cleaned_data['password1'] < '5' and self.cleaned_data['password1'] > '12':
-            #self.add_error('password1', 'La contraseña debe ser mayor a 5 digitos y menor a 12')
-        
-        
+    #def clean_email(self):
+        #email= self.cleaned_data.get('email')
+        #email_base, proveeder= email.split('@')
+        #dominion, extension = proveeder.split('.')
 
-
-    def clean_email(self):
-        email= self.cleaned_data.get('email')
-        email_base, proveeder= email.split('@')
-        dominio, extension = proveeder.split('.')
-
-        if not 'mapfre' in email:
-            raise forms.ValidationError('Please use an extension in the email. Mapfre')
-        return email
-"""
+        #if not 'XXXX' in email:
+            #raise forms.ValidationError('Please use an extension in the email XXXX')
+        #return email
+    
 
 class LoginForm(forms.Form):
 
