@@ -1,21 +1,15 @@
 from django.db import models
-
 from .managers import InventoryManagers
 
 class Inventory(models.Model):
-
     LAPTOPS='0'
     DESKTOP='1'
     SURFACE='2'
-
     MODEL_TEAM=[
         (LAPTOPS,'Laptops'),
         (DESKTOP,'Desktop'),
         (SURFACE,'Surface'),
-    
     ]
-
-
     location = models.CharField('Location', max_length=100)
     direction = models.CharField('Direction', max_length=150)
     hostname = models.CharField('Hostanme', max_length=50)
@@ -41,10 +35,7 @@ class Inventory(models.Model):
         return self.nuuma + ' - ' + self.hostname
 
 """Change control"""
-
-
 class ChangeControl(models.Model):  
-    
     tracing_number= models.IntegerField()
     date= models.DateField()
     field_host= models.CharField('Hostname/NºSerial',max_length=50,blank=True)
