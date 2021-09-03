@@ -1,12 +1,9 @@
 #import re
 from django import forms
 from django.contrib.auth import authenticate
-
-
 from .models import User
 
 class RegisterForm(forms.ModelForm):
-
     password1= forms.CharField(
         label='Password',
         required=True,
@@ -17,7 +14,6 @@ class RegisterForm(forms.ModelForm):
             }
         )
     )
-    
     password2= forms.CharField(
         label=' Repeat password',
         required=True,
@@ -43,7 +39,6 @@ class RegisterForm(forms.ModelForm):
                 attrs={
                     'placeholder': 'Username',
                     'class': 'form-control',
-                    
                 }
             ),
             'email': forms.EmailInput(
@@ -74,11 +69,9 @@ class RegisterForm(forms.ModelForm):
         }
       
     def clean_password2(self):
-
         if self.cleaned_data['password1'] != self.cleaned_data['password2']:
             self.add_error('password2', 'Passwords are not the same') 
-
-            
+          
     #def clean_email(self):
         #email= self.cleaned_data.get('email')
         #email_base, proveeder= email.split('@')
@@ -90,7 +83,6 @@ class RegisterForm(forms.ModelForm):
     
 
 class LoginForm(forms.Form):
-
     username= forms.CharField(
         label='Username',
         required=True,
@@ -100,9 +92,7 @@ class LoginForm(forms.Form):
                 'class':'form-control'
             }
         )
-    )
-    
-   
+    )  
     password= forms.CharField(
         label='Password',
         required=True,
@@ -114,7 +104,6 @@ class LoginForm(forms.Form):
         )
     )
 
-
 # validar si un usuario existe o no en la base de datos y si sus datos estan correctos  
     def clean(self):
         cleaned_data=super(LoginForm, self).clean()
@@ -125,6 +114,5 @@ class LoginForm(forms.Form):
             #self.add_error('username','User data is not correct')
             #self.add_error('password','Password is not correct')
             raise forms.ValidationError('Username OR password is incorrect')
-
         return self.cleaned_data
 
