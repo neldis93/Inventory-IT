@@ -4,14 +4,11 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 #from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-
 from django.views.generic import CreateView, View
 from django.views.generic.edit import FormView
-
 from .forms import RegisterForm, LoginForm
 from .models import User
 #from .decorators import user_decorator_login
-
 
 class RegisterUserView(FormView):
     template_name= 'users/register.html'
@@ -19,7 +16,6 @@ class RegisterUserView(FormView):
     success_url= reverse_lazy('users_app:login_user')
 
     def form_valid(self, form):
-
         User.objects.create_user(
             form.cleaned_data['username'],
             form.cleaned_data['email'],
@@ -30,9 +26,7 @@ class RegisterUserView(FormView):
             phone=form.cleaned_data['phone'],
 
         )
-
         return super(RegisterUserView,self).form_valid(form)
-
 
 class LoginUserView(FormView):
     template_name='users/login.html'
@@ -48,14 +42,11 @@ class LoginUserView(FormView):
         login(self.request,user)
         return super(LoginUserView,self).form_valid(form)
         
-
     # @method_decorator(user_decorator_login)
     # def dispatch(self, request, *args, **kwargs):
     #     return super(LoginUserView, self).dispatch(request, *args, **kwargs)
 
-
 class LogoutUserView(View):
-
     def get(self, request, *args, **kwargs):
         logout(request)
         return HttpResponseRedirect(
