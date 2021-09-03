@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 from .models import Inventory, ChangeControl
 
 class InventoryAdmin(admin.ModelAdmin):
@@ -19,7 +18,6 @@ class InventoryAdmin(admin.ModelAdmin):
         'observations',
         'warranty',   
     )
-
     search_fields=('nuuma','hostname',)
     list_filter=('nuuma','hostname','model',)
 
