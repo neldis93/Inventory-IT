@@ -26,7 +26,7 @@ def get_secret(secret_name, secrets=secret):
     try:
         return secrets[secret_name]
     except:
-        msg = "la variable %s no existe" % secret_name
+        msg = "Variable %s does not exist" % secret_name
         raise ImproperlyConfigured(msg)
 
 
@@ -34,11 +34,7 @@ def get_secret(secret_name, secrets=secret):
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
 SECRET_KEY = get_secret('SECRET_KEY')
-
-
-
 
 # Application definition
 DJANGO_APPS = (
@@ -117,7 +113,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 AUTH_USER_MODEL= 'users.User'
-
 
 
 # Internationalization
