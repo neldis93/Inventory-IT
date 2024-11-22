@@ -26,10 +26,6 @@ This is a test project to automate an inventory of computer equipment, where it 
 
 #
 
-![image](Inventoryit/media/Screenshot/Page-3.png)
-
-#
-
 ![image](Inventoryit/media/Screenshot/Page-4.png)
 
 #
